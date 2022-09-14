@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import time
 
-path=r"..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt"
+path=r"..\..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt"
 
 if os.path.exists(path):
     os.remove(path)
@@ -21,8 +21,7 @@ driver.quit()
 
 proxy_ip_port=[]
 
-# with open(r"..\..\Users\Alireza\Downloads\socks5-proxy[DigiProxy.net].txt") as f:
-with open(r"..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt") as f:
+with open(r"..\..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt") as f:
     reader=f.read().split("\n")
 print(len(reader))
 for i in range(len(reader)):
@@ -42,10 +41,13 @@ for i in range(len(reader)):
         er=link.text
         
         if "This page isn’t working" in er:
-            pass
+            driver.quit()
+            continue
         elif "This site can’t be reached" in er:
-            pass
+            driver.quit()
+            continue
 
+        print("pass not working")
         height=int(driver.execute_script("return document.documentElement.scrollHeight"))//15
         height1=height
         for i in range(15):   
@@ -75,6 +77,3 @@ print("Done!!")
         #         }, 1000);
         #     """
         # )
-
-    # 00
-    # 11
