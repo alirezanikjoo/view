@@ -34,7 +34,7 @@ for i in range(len(reader)):
     capabilities=webdriver.DesiredCapabilities.CHROME
     proxy.add_to_capabilities(capabilities)
     driver=webdriver.Chrome("chromedriver.exe",desired_capabilities=capabilities)
-    
+
     try:
         driver.get("https://sarzaminhooshmand.com")
         link=driver.find_element(By.TAG_NAME,"body")
@@ -77,3 +77,4 @@ print("Done!!")
         # )
 
     # 00
+    # 11
