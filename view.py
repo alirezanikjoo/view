@@ -1,4 +1,4 @@
-wekbfswuoqecl   
+import os
 from selenium import webdriver
 from selenium.webdriver.common.proxy import Proxy , ProxyType
 from selenium.webdriver.common.by import By
@@ -33,6 +33,7 @@ for i in range(len(reader)):
     proxy.ssl_proxy=reader[i]
     capabilities=webdriver.DesiredCapabilities.CHROME
     proxy.add_to_capabilities(capabilities)
+
 
     driver=webdriver.Chrome("chromedriver.exe",desired_capabilities=capabilities)
     try:
@@ -76,4 +77,4 @@ print("Done!!")
         #     """
         # )
 
-    
+    # 00
