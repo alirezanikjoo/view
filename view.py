@@ -4,7 +4,7 @@ from selenium.webdriver.common.proxy import Proxy , ProxyType
 from selenium.webdriver.common.by import By
 import time
 
-path=r"..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt"
+path=r"..\..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt"
 
 if os.path.exists(path):
     os.remove(path)
@@ -20,7 +20,7 @@ driver.quit()
 
 proxy_ip_port=[]
 
-with open(r"..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt") as f:
+with open(r"..\..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt") as f:
     reader=f.read().split("\n")
 print(len(reader))
 for i in range(len(reader)):
@@ -40,15 +40,17 @@ for i in range(len(reader)):
         er=link.text
         
         if "This page isn’t working" in er:
-            pass
+            driver.quit()
+            continue
         elif "This site can’t be reached" in er:
-            pass
+            driver.quit()
+            continue
 
-        height=int(driver.execute_script("return document.documentElement.scrollHeight"))//15
+        height=int(driver.execute_script("return document.documentElement.scrollHeight"))//14
         height1=height
-        for i in range(15):   
-            driver.execute_script("window.scrollTo(0,%i)" %(height1))
-            time.sleep(0.35)
+        for i in range(14):   
+            driver.execute_script("window.scrollTo(0,%i)" %(height1-70))
+            time.sleep(0.50)
             height1+=height
 
     except:
