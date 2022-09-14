@@ -33,9 +33,8 @@ for i in range(len(reader)):
     proxy.ssl_proxy=reader[i]
     capabilities=webdriver.DesiredCapabilities.CHROME
     proxy.add_to_capabilities(capabilities)
-
-
     driver=webdriver.Chrome("chromedriver.exe",desired_capabilities=capabilities)
+    
     try:
         driver.get("https://sarzaminhooshmand.com")
         link=driver.find_element(By.TAG_NAME,"body")
@@ -47,14 +46,13 @@ for i in range(len(reader)):
         elif "This site can’t be reached" in er:
             pass
 
-
         height=int(driver.execute_script("return document.documentElement.scrollHeight"))//15
         height1=height
         for i in range(15):   
             driver.execute_script("window.scrollTo(0,%i)" %(height1))
             time.sleep(0.35)
             height1+=height
-            
+
     except:
         print('error')
     driver.quit()
