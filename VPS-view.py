@@ -4,6 +4,8 @@ from selenium.webdriver.common.proxy import Proxy , ProxyType
 from selenium.webdriver.common.by import By
 import time
 
+numberofproxies=0
+counter=0
 flag=0
 while flag!=10:
     path=r"C:\Users\Administrator\Downloads\http-proxy[DigiProxy.net].txt"
@@ -24,7 +26,7 @@ while flag!=10:
 
     with open(r"C:\Users\Administrator\Downloads\http-proxy[DigiProxy.net].txt") as f:
         reader=f.read().split("\n")
-    numberofproxies=len(reader)
+    numberofproxies+=len(reader)
     print(numberofproxies)
     for i in range(len(reader)):
 
@@ -34,9 +36,8 @@ while flag!=10:
         proxy.ssl_proxy=reader[i]
         capabilities=webdriver.DesiredCapabilities.CHROME
         proxy.add_to_capabilities(capabilities)
-
-
         driver=webdriver.Chrome("chromedriver.exe",desired_capabilities=capabilities)
+
         try:
             driver.set_page_load_timeout(20)
             driver.get("https://tarahisiteseo.com")
@@ -58,10 +59,11 @@ while flag!=10:
                 time.sleep(0.5)
                 height1+=height
             time.sleep(3)
-            print("%ist proxy from %i proxies" %(i,numberofproxies))
+            print("%ist proxy from %i proxies" %(i+1+counter,numberofproxies))
         except:
             print('error')
 
         driver.quit()
+    counter+= i+1
     flag+=1
     print("Done!!")

@@ -55,7 +55,7 @@ for i in range(len(reader)):
             time.sleep(0.50)
             height1+=height
         time.sleep(3)
-        print("%ist proxy from %i proxies" %(i,numberofproxies))
+        print("%ist proxy from %i proxies" %(i+1,numberofproxies))
 
     except:
         print('error')
