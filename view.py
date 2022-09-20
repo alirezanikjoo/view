@@ -22,7 +22,8 @@ proxy_ip_port=[]
 
 with open(r"..\..\..\Users\Alireza\Downloads\http-proxy[DigiProxy.net].txt") as f:
     reader=f.read().split("\n")
-print(len(reader))
+numberofproxies=len(reader)
+print(numberofproxies)
 for i in range(len(reader)):
 
     proxy=Proxy()
@@ -50,10 +51,11 @@ for i in range(len(reader)):
         height=int(driver.execute_script("return document.documentElement.scrollHeight"))//20
         height1=height
         for i in range(20):   
-            driver.execute_script("window.scrollTo(0,%i)" %(height1-50))
+            driver.execute_script("window.scrollTo(0,%i)" %(height1-30))
             time.sleep(0.50)
             height1+=height
-        time.sleep(2)
+        time.sleep(3)
+        print("%ist proxy from %i proxies" %(i,numberofproxies))
 
     except:
         print('error')

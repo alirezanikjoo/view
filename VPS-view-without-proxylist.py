@@ -6,19 +6,6 @@ import time
 
 flag=0
 while flag!=10:
-    path=r"C:\Users\Administrator\Downloads\http-proxy[DigiProxy.net].txt"
-
-    if os.path.exists(path):
-        os.remove(path)
-    else:
-        print("file does not exist")
-
-    driver=webdriver.Chrome("chromedriver.exe")
-    driver.get("https://digiproxy.net/")
-    link=driver.find_element(By.XPATH,'//*[@id="main"]/div/div/section[2]/div/div[1]/div/div/div/div[1]/div[3]/a')
-    link.click()
-    time.sleep(3)
-    driver.quit()
 
     proxy_ip_port=[]
 
